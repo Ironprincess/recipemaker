@@ -1,0 +1,113 @@
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: #f6f7fb;
+  color: #1a1f36;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e5e8f0;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+input,
+button,
+textarea {
+  font: inherit;
+  border-radius: 8px;
+  border: 1px solid #c9d0de;
+  padding: 0.55rem 0.7rem;
+}
+
+button {
+  cursor: pointer;
+  border-color: #4d68ff;
+  background: #4d68ff;
+  color: #fff;
+}
+
+button.secondary {
+  background: #fff;
+  color: #1a1f36;
+  border-color: #c9d0de;
+}
+
+button.danger {
+  border-color: #d74747;
+  background: #d74747;
+}
+
+.muted {
+  color: #637089;
+  font-size: 0.9rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: #fff3cd;
+  color: #6c4d00;
+}
+
+.listItem {
+  border: 1px solid #e5e8f0;
+  border-radius: 10px;
+  padding: 0.7rem;
+}
+
+.error {
+  color: #a71d2a;
+  font-size: 0.9rem;
+}
+
+.recipeBlock ol {
+  padding-left: 1.2rem;
+}
+
+.recipeBlock ul {
+  padding-left: 1.1rem;
+}
