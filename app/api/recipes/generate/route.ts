@@ -23,6 +23,24 @@ export async function POST(request: Request) {
     }
 
     const recipe = await generateRecipeWithClaude(inventory, options);
+
+    // Deduct used ingredients from inventory
+    const recipeText = recipe.ingredients.join(" ").toLowerCase();
+    const usedItems = inventory.filter((item) =>
+      recipeText.includes(item.name.toLowerCase())
+    );
+
+    await prisma.$transaction(
+      usedItems.map((item) =>
+        item.quantity <= 1
+          ? prisma.ingredient.delete({ where: { id: item.id } })
+          : prisma.ingredient.update({
+              where: { id: item.id },
+              data: { quantity: item.quantity - 1 }
+            })
+      )
+    );
+
     return NextResponse.json({ recipe });
   } catch (error) {
     if (error instanceof ZodError) {
