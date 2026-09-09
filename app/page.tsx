@@ -157,6 +157,7 @@ export default function HomePage() {
         throw new Error(data.error ?? "Failed to generate recipe");
       }
       setRecipe(data.recipe);
+      await loadInventory();
     } catch (error) {
       setRecipeError(error instanceof Error ? error.message : "Failed to generate recipe");
     } finally {
